@@ -1,64 +1,39 @@
 <!DOCTYPE html>
+
 <html>
+  <head>
+  <script>
+    function onSubmit(token) {
+      alert('thanks ' + document.getElementById('field').value);
+    }
 
-<head>
-    <title>titulo test</title>
-    <meta charset="utf-8">
+    function validate(event) {
+      event.preventDefault();
+      if (!document.getElementById('field').value) {
+        alert("You must add text to the required field");
+      } else {
+        grecaptcha.execute();
+      }
+    }
 
-    <style type="text/css">
-        label {
-            display: block;
-            margin: 3px;
-        }
-    </style>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-
-    <script>
-        function onSubmit(token) {
-            document.getElementById("demo-form").submit();
-        }
-    </script>
-</head>
-
-<body>
-    <div id="after_submit"></div>
-
-    <form id="contact_form" action="#" method="POST" enctype="multipart/form-data">
-        <div class="row">
-            <label class="required" for="name">Nombre:</label><br />
-            <input id="name" class="input" name="name" type="text" value="" size="30" /><br />
-            <span id="name_validation" class="error_message"></span>
-        </div>
-        <br /> 
-        <div class="row">
-            <label class="required" for="subject">Asunto:</label><br />
-            <input id="email" class="input" name="email" type="text" value="" size="30" /><br />
-            <span id="email_validation" class="error_message"></span>
-        </div>
-        <br />
-        <div class="row">
-            <label class="required" for="email">Correo Electrónico:</label><br />
-            <input id="email" class="input" name="email" type="text" value="" size="30" /><br />
-            <span id="email_validation" class="error_message"></span>
-        </div>
-        <br />
-        <div class="row">
-            <label class="required" for="message">Mensaje:</label><br />
-            <textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br />
-            <span id="message_validation" class="error_message"></span>
-        </div>
-   <!--        <br />  /> -->
-   <div class="row">
-        <button class="g-recaptcha" data-sitekey="6LeyCz8iAAAAAMl1-ctKdHu-nIbzc9TLyW1dElyg
-        " data-callback='onSubmit'
-            data-action='submit'>Enviar</button>
-        </div>
-        <!-- <input id="submit_button" type="submit" value="Enviar" /> -->
-        <input id="clear_button" type="button" value="borrar" />
-    
+    function onload() {
+      var element = document.getElementById('submit');
+      element.onclick = validate;
+    }
+  </script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </head>
+  <body>
+    <form>
+      Name: (required) <input id="field" name="field">
+      <div id="recaptcha" class="g-recaptcha"
+          data-sitekey="_your_site_key_"
+          data-callback="onSubmit"
+          data-size="invisible"></div>
+      <button id="submit">submit</button>
     </form>
-
-
-</body>
-
+    <script>onload();</script>
+  </body>
 </html>
+
+
