@@ -18,19 +18,42 @@
         function onSubmit(token) {
             document.getElementById("demo-form").submit();
         }
+
+
+    </script>
+
+    <script>
+        function valid() {
+            var ok = true;
+
+            var expresion = /^[a-z][\w.-]+@\w[\w.-]+\.[\w.-]*[a-z][a-z]$/i;
+            var email = document.contact_form.email.value;
+            if (!expresion.test(email)) {
+                ok = false;
+            }
+        }
+
+
+        if (document.getElementById('name').value == '') {
+            ok = false;
+        }
+        if(!ok){
+            alert('Campos obligatorios en blanco')
+        }
+        return ok;
     </script>
 </head>
 
 <body>
     <div id="after_submit"></div>
 
-    <form id="contact_form" action="#" method="POST" enctype="multipart/form-data">
+    <form id="contact_form" action="#" method="POST" enctype="multipart/form-data" onsubmit="return valid()">
         <div class="row">
             <label class="required" for="name">Nombre:</label><br />
             <input id="name" class="input" name="name" type="text" value="" size="30" /><br />
             <span id="name_validation" class="error_message"></span>
         </div>
-        <br /> 
+        <br />
         <div class="row">
             <label class="required" for="subject">Asunto:</label><br />
             <input id="email" class="input" name="email" type="text" value="" size="30" /><br />
@@ -48,16 +71,15 @@
             <textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br />
             <span id="message_validation" class="error_message"></span>
         </div>
-        <br />  /> -->
-  <div class="row">
-        <button class="g-recaptcha" data-sitekey="6LeyCz8iAAAAAMl1-ctKdHu-nIbzc9TLyW1dElyg
-        " data-callback='onSubmit'
-            data-action='submit'>Enviar</button>
-        
-       <input id="submit_button" type="submit" value="Enviar" /> 
-         <input id="clear_button" type="button" value="borrar" />
-    </div> 
+        <br /> /> -->
+        <div class="row">
+            <button class="g-recaptcha" data-sitekey="6LeyCz8iAAAAAMl1-ctKdHu-nIbzc9TLyW1dElyg
+        " data-callback='onSubmit' data-action='submit'>Enviar</button>
+
+            <input id="submit_button" type="submit" value="Enviar" />
+            <input id="clear_button" type="button" value="borrar" />
+        </div>
     </form>
 </body>
-</html> 
 
+</html>
