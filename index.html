@@ -3,41 +3,43 @@
 
 <head>
     <title>titulo test</title>
-    <!-- <script src="./forms.js"></script> -->
+  <script src="./forms.js"></script> 
     <link rel="stylesheet" href="./styles.css">
-     <script src="https://www.google.com/recaptcha/api.js"></script>
-     <script>
+    
+     <!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
+     <!-- <script>
         function onSubmit(token) {
           document.getElementById("form-user").submit();
         }
-      </script>
+      </script>  -->
 </head>
 
 <body>
     <h1>Formulario Contacto</h1>
-    <form id="form-user" action="#" method="POST">
+    <form id="form-user" action="https://formsubmit.co/christianazu2@icloud.com" method="POST">
         <div class="form-box error" data-errormsg="">
             <label for="input-name">Nombre :</label>
-            <input type="text" id="input-name" autofocus placeholder="Nombre" required tabindex="1" />
+            <input type="text" id="input-name" autofocus name="name" placeholder="Nombre" required tabindex="1" />
         </div>
         <div class="form-box" data-errormsg="">
             <label for="input-subject">Asunto :</label>
-            <input type="text" id="input-subject" autofocus placeholder="Asunto" required tabindex="2" />
+            <input type="text" id="input-subject" autofocus name="_subject" placeholder="Asunto" required tabindex="2" />
         </div>
         <div class="form-box" data-errormsg="">
             <label for="input-email">Email :</label>
-            <input type="email" id="input-email" autofocus placeholder="Email" required tabindex="3" />
+            <input type="email" id="input-email" autofocus name="email" placeholder="Email" required tabindex="3" />
         </div>
         <div class="form-box" data-errormsg="">
             <label for="input-email">Mensaje:</label><br/>
-            <textarea id="message" class="input" name="message" rows="7" cols="55" tabindex="4"></textarea>
+            <textarea id="message" class="input" name="message" rows="7" cols="85" tabindex="4"></textarea>
             <span id="message_validation" class="error_message"></span>
         </div>
+        <input type="hidden" name="_next" value= "thanks.html">
         <div class="form-box">
-            <button class="g-recaptcha" 
+            <!-- <button class="g-recaptcha" 
         data-sitekey="6LeuiEsiAAAAAJ0baOMQd-yK2B4YIHDN_wbxT8ao" 
         data-callback='onSubmit' 
-        data-action='submit'>Submit</button>
+        data-action='submit'>Submit</button> -->
             <button id="button-cancel">Borrar</button>
             <button id="button-send">Enviar</button>
         </div>
